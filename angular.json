@@ -29,13 +29,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true,
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss"
+                "./src/assets/scss"     
               ]
-            }
+            },
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {

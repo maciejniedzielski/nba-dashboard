@@ -1,1 +1,14 @@
 @import 'reset';
+@import 'index';
+
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Karla', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { AppSettings } from 'src/app/app.settings';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-players',
+  templateUrl: './players.component.html',
+  styleUrls: ['./players.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class PlayersComponent implements OnInit {
 
   public constructor(
     private appSettings: AppSettings,

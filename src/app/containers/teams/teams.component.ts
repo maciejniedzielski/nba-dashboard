@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { AppSettings } from 'src/app/app.settings';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-teams',
+  templateUrl: './teams.component.html',
+  styleUrls: ['./teams.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class TeamsComponent implements OnInit {
 
   public constructor(
     private appSettings: AppSettings,

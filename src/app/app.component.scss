@@ -1,0 +1,12 @@
+@import 'index';
+
+.app {
+  background: $app-background;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  height: calc(100% - #{$menu-height});
+  padding: 50px 5vw;
+}
