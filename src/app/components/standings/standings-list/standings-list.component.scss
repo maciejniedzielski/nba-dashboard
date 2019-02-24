@@ -71,10 +71,10 @@ $ranking-width: 110px;
   @include flex-align-justify(center);
 }
 
-.ranking-heading {
+.ranking-header {
   @include flex-align-justify(center, space-around);
-  width: $ranking-width;
-  padding: 5px 0;
+  width: calc(#{$ranking-width} + 10px);
+  padding: 5px;
   background: $primary;
   color: $white;
   border-radius: 3px 3px 0 0;
