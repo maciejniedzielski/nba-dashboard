@@ -13,6 +13,7 @@ import { ScoresComponent } from './containers/scores/scores.component';
 import { PlayersComponent } from './containers/players/players.component';
 import { PlayersItemComponent } from './containers/players-item/players-item.component';
 import { AppSettings } from './app.settings';
+import { StandingsListComponent } from './components/standings/standings-list/standings-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AppSettings } from './app.settings';
     TeamsComponent,
     ScoresComponent,
     PlayersComponent,
-    PlayersItemComponent
+    PlayersItemComponent,
+    StandingsListComponent
   ],
   imports: [
     BrowserModule,

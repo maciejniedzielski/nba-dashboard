@@ -1,7 +1,7 @@
 @import 'index';
 
 .standings {
-  width: 400px;
-  height: 600px;
-  box-shadow: $shadow;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 400px));
+  grid-column-gap: 50px;
 }

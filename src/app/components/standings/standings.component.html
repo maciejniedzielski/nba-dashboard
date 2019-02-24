@@ -1,3 +1,6 @@
 <div class="standings">
-
+  <ng-container *ngIf="(standings$ | async) as standings">
+    <app-standings-list *ngFor="let conference of objectKeys(standings) as conference"
+      [standings]="standings" [conference]="conference"></app-standings-list>
+  </ng-container>
 </div>

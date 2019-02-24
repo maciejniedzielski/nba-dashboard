@@ -1,0 +1,85 @@
+@import 'index';
+
+$ranking-width: 110px;
+
+.standings-list {
+  width: 400px;
+  height: auto;
+  position: relative;
+
+  &__header {
+    @include flex-align-justify(center, space-between);
+  }
+
+  &__table {
+    box-shadow: $shadow;
+  }
+}
+
+.conference {
+  text-transform: uppercase;
+  color: $primary;
+  @include karla-bold(18px);
+
+  &--west {
+    color: $secondary;
+  }
+}
+
+.team {
+  display: grid;
+  grid-template-columns: 40px 2fr $ranking-width;
+  align-items: center;
+  padding: 2.5px 5px;
+  background: $white;
+
+  &:nth-child(odd) {
+    background: $light-gray;
+  }
+
+  &__logo {
+    width: 40px;
+    margin-right: 5px;
+  }
+
+  &__name {
+    color: $black;
+
+    & > a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__stats {
+    @include flex-align-justify(center, space-around);
+  }
+}
+
+.rank {
+  @include karla-regular(18px);
+  text-align: center;
+}
+
+.figure {
+  @include flex-align-justify(center);
+}
+
+.ranking-heading {
+  @include flex-align-justify(center, space-around);
+  width: $ranking-width;
+  padding: 5px 0;
+  background: $primary;
+  color: $white;
+  border-radius: 3px 3px 0 0;
+
+  &--west {
+    background: $secondary;
+  }
+}
