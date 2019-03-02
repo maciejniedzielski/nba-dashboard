@@ -1,7 +1,13 @@
 <nav class="nav">
-  <ul class="nav__list">
+  <ul class="nav__list" [class.toggled]="isMenuToggled">
     <li *ngFor="let element of navigationElements" routerLinkActive="active">
       <a routerLink="/{{ element.path }}" routerLinkActive="active">{{ element.path }}</a>
     </li>
   </ul>
+
+  <div class="hamburger" [class.is-active]="isMenuToggled" (click)="toggleMenu()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
 </nav>

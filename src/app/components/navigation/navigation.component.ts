@@ -8,8 +8,14 @@ import { NavigationPaths } from 'src/app/app.routes';
 })
 export class NavigationComponent implements OnInit {
   public navigationElements = NavigationPaths;
+  public isMenuToggled: boolean = false;
+
   constructor() { }
 
   ngOnInit() { }
+
+  public toggleMenu(): void {
+    this.isMenuToggled = !this.isMenuToggled;
+  }
 
 }
