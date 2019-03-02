@@ -1,0 +1,48 @@
+@import 'index';
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.player-link {
+  text-decoration: none;
+  color: $black;
+}
+
+.player {
+  padding: 30px;
+  
+  .images {
+    position: relative;
+    top: 3px;
+  }
+
+  &__photo {
+    width: 200px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__team-logo {
+    position: absolute;
+    left: -25px;
+    z-index: 0;
+    top: calc(50% - 100px);
+    width: 150px;
+    opacity: 0.5;
+  }
+
+  &__description {
+    padding: 10px 5px;
+    text-align: center;
+
+    p:nth-child(1) {
+      @include karla-bold(16px);
+      color: lighten($primary, 20%);
+      margin-bottom: 10px;
+    }
+  }
+}

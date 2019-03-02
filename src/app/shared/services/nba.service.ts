@@ -31,4 +31,8 @@ export class NbaService {
     return this.httpClient.get<any[]>(this.appSettings.dataApiUrl + `/scoreboard`);
   }
 
+  public getPlayers(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.appSettings.dataApiUrl + `/players`);
+  }
+
 }
