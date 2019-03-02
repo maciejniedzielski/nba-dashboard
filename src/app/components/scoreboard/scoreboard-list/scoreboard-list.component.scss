@@ -1,0 +1,146 @@
+@import 'index';
+
+.scoreboard-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 50px;
+
+  &--home-view {
+    grid-template-columns: minmax(400px, 1fr);
+    grid-template-rows: 1fr;
+  }
+  
+  &__header {
+    width: 100%;
+    padding: 10px 0;
+    @include flex-align-justify(center, space-between);
+  }
+}
+
+.live-results-container {
+  grid-column: 1/5;
+}
+
+.upcoming-results-container {
+  grid-column: 1/3;
+  grid-row: span 2;
+}
+
+.final-results-container {
+  grid-column: 3/4;
+  grid-row: span 2;
+}
+
+.header__title {
+  @include karla-bold();
+  text-transform: uppercase;
+  position: relative;
+
+  &--upcoming {
+    color: $primary;
+  }
+
+  &--live {
+    color: $secondary;
+    margin-left: 20px;
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      position: absolute;
+      top: 2px;
+      left: -20px;
+      background: $secondary;
+      animation: pulse 1s infinite;
+      animation-duration: 2s;
+    }
+  }
+
+  &--final {
+    color: lighten($black, 50%);
+  }
+}
+
+
+.games-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2px;
+  grid-auto-rows: 120px;
+  box-shadow: $shadow;
+  background: $gray-separator;
+
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+    height: 5px;
+    background-color: $gray-separator;
+  }
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    background-color: $gray-separator;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+  }
+
+  &--live {
+    display: flex;
+    box-shadow: $shadow, -10px 0px 0px $secondary;
+    width: calc(100% - 10px);
+    margin-left: 10px;
+    overflow-x: scroll;
+
+    .game {
+      margin-right: 2px;
+      padding: 20px 10px;
+      min-width: 350px;
+    }
+  }
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  background: $light-gray;
+  padding: 10px 50px;
+  @include flex-align-justify(center, space-between);
+
+  &__team {
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+  }
+
+  &__info {
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+.info__result {
+  @include karla-bold(16px);
+  margin: 5px 0;
+  color: #303030;
+
+  &--live {
+    color: $primary;
+  }
+}
+
+.team__logo {
+  $logo-width: 70px;
+  width: $logo-width;
+  border-radius: $logo-width;
+  margin-bottom: 5px;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: $gray-separator;
+  }
+}

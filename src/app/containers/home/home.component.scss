@@ -1,1 +1,25 @@
 @import 'index';
+
+.home {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 50px;
+
+  &__header {
+    grid-column: 1/2;
+    position: sticky;
+    top: 70px;
+    z-index: 998;
+    background: #e5e7e9;
+  }
+
+  &__content {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .player {
+    grid-column: 2/3;
+  }
+}

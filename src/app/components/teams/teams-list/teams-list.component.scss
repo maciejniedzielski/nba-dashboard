@@ -1,0 +1,23 @@
+@import 'index';
+
+.teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $app-background;
+    padding: 30px;
+    
+    figcaption {
+      text-align: center;
+    }
+
+    &:hover {
+      background: darken($app-background, 5%);
+    }
+  }
+}

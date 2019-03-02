@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NbaService } from 'src/app/shared/services/nba.service';
 import { map, merge } from 'rxjs/operators';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
+import { Standings } from 'src/app/shared/models/standings.model';
+import { Team } from 'src/app/shared/models/team.model';
 
 @Component({
-  selector: 'app-standings',
-  templateUrl: './standings.component.html',
-  styleUrls: ['./standings.component.scss']
+  selector: 'app-standings-container',
+  templateUrl: './standings-container.component.html',
+  styleUrls: ['./standings-container.component.scss']
 })
-export class StandingsComponent implements OnInit {
-  public standings$;
+export class StandingsContainerComponent implements OnInit {
+  @Input() tpl: 'table' | 'list' = 'table';
+  public standings$: Observable<Standings | Team[]>;
   public objectKeys = Object.keys;
 
   constructor(
@@ -18,10 +21,8 @@ export class StandingsComponent implements OnInit {
 
   ngOnInit() {
     this.standings$ = forkJoin(
-      this.nbaService.getStandings().pipe(map(res => res['league'].standard.conference)),
-      this.nbaService.getTeams().pipe(
-        map(teams => teams['league'].standard.filter(team => team.isNBAFranchise))
-      )
+      this.nbaService.getStandings(),
+      this.nbaService.getTeams()
     ).pipe(
       map(([conferences, filteredTeams]) => {
         conferences['west'].map(conferenceTeam => conferenceTeam['data'] = filteredTeams.find(nbaTeam => nbaTeam.teamId === conferenceTeam.teamId))

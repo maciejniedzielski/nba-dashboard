@@ -3,7 +3,7 @@
 $ranking-width: 110px;
 
 .standings-list {
-  width: 400px;
+  width: 100%;
   height: auto;
   position: relative;
 
@@ -37,6 +37,15 @@ $ranking-width: 110px;
     background: $light-gray;
   }
 
+  &:nth-child(n + 9) {
+    background: #eceeef;
+    opacity: 0.6;
+  }
+
+  &:nth-child(9) {
+    border-top: 2px solid $gray-separator;
+  }
+
   &__logo {
     width: 40px;
     margin-right: 5px;
@@ -44,17 +53,6 @@ $ranking-width: 110px;
 
   &__name {
     color: $black;
-
-    & > a {
-      color: inherit;
-      text-decoration: none;
-      position: relative;
-
-      &:hover {
-        color: $primary;
-        text-decoration: underline;
-      }
-    }
   }
 
   &__stats {

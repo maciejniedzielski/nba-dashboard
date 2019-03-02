@@ -5,5 +5,5 @@ export class AppSettings {
   public appTabTitle = ` | ${ this.appTitle }`;
 
   public apiIp = 'http://' + environment.location;
-  public apiUrl = this.apiIp + '/api';
+  public dataApiUrl = this.apiIp + '/data';
 }

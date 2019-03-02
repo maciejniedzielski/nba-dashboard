@@ -4,7 +4,7 @@ import { TeamsComponent } from './containers/teams/teams.component';
 import { PlayersComponent } from './containers/players/players.component';
 import { ScoresComponent } from './containers/scores/scores.component';
 import { PlayersItemComponent } from './containers/players-item/players-item.component';
-import { StandingsComponent } from './components/standings/standings.component';
+import { StandingsComponent } from './containers/standings/standings.component';
 
 export const NavigationPaths = [
   { 
@@ -44,6 +44,11 @@ export const AppRoutes: Routes = [
   { 
     path: 'players/:id',
     component: PlayersItemComponent
+  },
+  { 
+    path: 'teams/:id/:slug',
+    component: TeamsComponent,
+    data: { title: 'Teams' }
   },
   {
     path: '**',

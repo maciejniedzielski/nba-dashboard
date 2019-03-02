@@ -1,0 +1,168 @@
+@import 'index';
+
+table {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.rank {
+  @include karla-regular(18px);
+  text-align: center;
+  margin-right: 24px;
+}
+
+.center {
+  text-align: center ;
+}
+
+.header {
+  background: $primary;
+  @include karla-regular(16px);
+  text-transform: uppercase;
+  color: $white;
+
+  ::ng-deep .mat-sort-header-container {
+    justify-content: center !important; 
+  }
+}
+
+.data-row {
+  &:nth-child(even) {
+    background: $light-gray;
+  }
+
+  &:nth-child(n + 9) {
+    background: $light-gray;
+    opacity: 0.6;
+  }
+
+  &:nth-child(9) {
+    border-top: 2px solid $gray-separator;
+  }
+
+  &:hover {
+    background: lighten($primary, 65%);
+    animation: 250ms table-row-shadow forwards;
+  }
+}
+
+@keyframes table-row-shadow {
+  0% {
+    box-shadow: inset 0px 1px 0px 0px lighten($primary, 10%), inset 0px -1px 0px 0px lighten($primary, 10%), 0px 0px 0px 0px $primary
+  }
+  100% {
+    box-shadow: inset 0px 1px 0px 0px lighten($primary, 10%), inset 0px -1px 0px 0px lighten($primary, 10%), -10px 0px 0px 0px $primary;
+  }
+}
+
+.team {
+  @include flex-align-justify(center, flex-start);
+  
+  &__logo {
+    width: 50px;
+    margin-right: 10px;
+  }
+
+  &__name {
+    @include karla-bold(14px);
+  }
+}
+
+
+
+
+html,
+body {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  color: #404040;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 0 20px;
+  color: #716894;
+}
+
+.main {
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label {
+  display: block;
+  margin-bottom: 1em;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.chunk {
+  display: block;
+  width: 100%;
+  margin-bottom: 2.5em;
+  
+  &:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+}
+
+// ===== Toggle Buttons =====
+
+// Button wrapper
+.t-toggle-button {
+
+  .t-toggle-button__option:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  .t-toggle-button__option:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+// Individual option in toggle button
+.t-toggle-button__option {
+  display: inline-block;
+  float: left;
+  height: auto;
+  width: 13em;
+  padding: 0.875em;
+  font: inherit;
+  font-weight: 700;
+  color: #a59eb5;
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  overflow: visible;
+  border: 2px solid #716894;
+  vertical-align: middle;
+  -webkit-appearance: none;
+
+  span {
+    font-size: 14px;
+  }
+
+  // When checked the button is filled dark purple
+  &.js-checked {
+    background-color: #716894;
+    color: #ffffff;
+  }
+
+  // Hide the radio button
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+  }
+
+}

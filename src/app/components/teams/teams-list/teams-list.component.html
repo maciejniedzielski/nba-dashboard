@@ -1,0 +1,12 @@
+<input type="text" [formControl]="searchFormControl">
+<section class="teams">
+  <div *ngFor="let team of filteredTeams$ | async" class="team">   
+    <a routerLink="/teams/{{ team.teamId }}/{{ team.urlName }}" class="link">
+      <figure>
+        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.tricode }}.svg" alt="">
+        <!-- <img src="https://www.nba.com/assets/logos/teams/primary/web/{{ team.tricode }}.svg"> -->
+        <figcaption>{{ team.fullName }}</figcaption>  
+      </figure>
+    </a>
+  </div>
+</section>

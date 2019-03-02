@@ -4,9 +4,23 @@
   background: $app-background;
   width: 100%;
   min-height: 100%;
+
+  &__header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 0px 15px #00000070;
+  }
 }
 
-.main {
-  height: calc(100% - #{$menu-height});
-  padding: 50px 5vw;
+:host {
+  .main {
+    height: calc(100% - #{$menu-height});
+  }
+
+  /deep/ router-outlet ~ * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }

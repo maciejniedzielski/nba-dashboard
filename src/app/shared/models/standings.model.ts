@@ -1,3 +1,7 @@
+export interface Standings {
+  [key: string]: StandingTeam[]
+}
+
 export interface StandingTeam {
   teamId: string;
   win: string;

@@ -36,12 +36,12 @@
           background: darken($primary, 5%);
         }
 
-        &:active {
+        &:active, &.active {
           background: darken($primary, 10%);
         }
       }
 
-      &:hover {
+      &:hover, &.active {
         &::after {
           content: '';
           width: 100%;

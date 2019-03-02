@@ -1,7 +1,7 @@
 <nav class="nav">
   <ul class="nav__list">
-    <li *ngFor="let element of navigationElements">
-      <a routerLink="/{{ element.path }}">{{ element.path }}</a>
+    <li *ngFor="let element of navigationElements" routerLinkActive="active">
+      <a routerLink="/{{ element.path }}" routerLinkActive="active">{{ element.path }}</a>
     </li>
   </ul>
 </nav>
