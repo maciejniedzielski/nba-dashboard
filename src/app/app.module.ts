@@ -22,6 +22,7 @@ import { StandingsTableComponent } from './components/standings-container/standi
 import { StandingsComponent } from './containers/standings/standings.component';
 import { SharedModule } from './shared/shared.module';
 import { PlayersListComponent } from './components/players-list/players-list.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PlayersListComponent } from './components/players-list/players-list.com
     StandingsTableComponent,
     StandingsComponent,
     PlayersListComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
