@@ -1,6 +1,7 @@
 @import 'index';
 
 $ranking-width: 110px;
+$ranking-width-mobile: 70px;
 
 .standings-list {
   width: 100%;
@@ -32,6 +33,10 @@ $ranking-width: 110px;
   align-items: center;
   padding: 2.5px 5px;
   background: $white;
+
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 40px 2fr $ranking-width-mobile;
+  }
 
   &:nth-child(odd) {
     background: $light-gray;
@@ -76,6 +81,10 @@ $ranking-width: 110px;
   background: $primary;
   color: $white;
   border-radius: 3px 3px 0 0;
+
+  @media screen and (max-width: 400px) {
+    width: calc(#{$ranking-width-mobile} + 10px);
+  }
 
   &--west {
     background: $secondary;

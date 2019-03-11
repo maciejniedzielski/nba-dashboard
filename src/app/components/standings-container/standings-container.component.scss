@@ -5,3 +5,18 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 50px;
 }
+
+.table {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.list {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    margin-bottom: 50px;
+  }
+}

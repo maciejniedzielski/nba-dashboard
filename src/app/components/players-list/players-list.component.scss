@@ -24,6 +24,9 @@
     width: 200px;
     position: relative;
     z-index: 1;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transition: .5s ease;
   }
 
   &__team-logo {
@@ -33,6 +36,7 @@
     top: calc(50% - 100px);
     width: 150px;
     opacity: 0.5;
+    transition: .3s ease;
   }
 
   &__description {
@@ -40,9 +44,21 @@
     text-align: center;
 
     p:nth-child(1) {
-      @include karla-bold(16px);
+      @include karla-bold(18px);
       color: lighten($primary, 20%);
       margin-bottom: 10px;
+    }
+  }
+
+  &:hover {
+    .player__team-logo {
+      transform: scale(1.2);
+      transform-origin: center center;
+    }
+
+    .player__photo {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
   }
 }

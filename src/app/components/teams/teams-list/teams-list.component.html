@@ -1,6 +1,6 @@
 <input type="text" [formControl]="searchFormControl">
-<section class="teams">
-  <div *ngFor="let team of filteredTeams$ | async" class="team">   
+<section *ngIf="filteredTeams$ | async as filteredTeams; else loader" class="teams">
+  <div *ngFor="let team of filteredTeams" class="team">   
     <a routerLink="/teams/{{ team.teamId }}/{{ team.urlName }}" class="link">
       <figure>
         <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.tricode }}.svg" alt="">
@@ -10,3 +10,8 @@
     </a>
   </div>
 </section>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
