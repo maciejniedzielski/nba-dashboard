@@ -42,7 +42,7 @@ export const AppRoutes: Routes = [
   },
   ...NavigationPaths,
   { 
-    path: 'players/:id',
+    path: 'players/:firstname/:lastname/:id',
     component: PlayersItemComponent
   },
   { 

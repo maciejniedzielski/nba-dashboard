@@ -1,0 +1,16 @@
+@import 'index';
+
+
+.firstname, .lastname {
+  color: $primary;
+}
+
+.firstname {
+  @include karla-regular(32px);
+}
+
+.lastname {
+  @include karla-bold(58px);
+  text-transform: uppercase;
+}
+
