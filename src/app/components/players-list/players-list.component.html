@@ -1,5 +1,5 @@
-<div class="players">
-  <a *ngFor="let player of players$ | async" href="" class="player-link">
+<div *ngIf="players$ | async as players; else loader" class="players">
+  <a routerLink="{{ player.playerUrl }}" *ngFor="let player of players" class="player-link">
     <div class="player">
       <div class="images">
         <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="" class="player__team-logo">
@@ -12,3 +12,7 @@
     </div>
   </a>
 </div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
