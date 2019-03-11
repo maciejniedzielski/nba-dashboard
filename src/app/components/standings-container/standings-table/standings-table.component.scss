@@ -1,7 +1,7 @@
 @import 'index';
 
 table {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -111,58 +111,4 @@ label {
       display: table;
       clear: both;
   }
-}
-
-// ===== Toggle Buttons =====
-
-// Button wrapper
-.t-toggle-button {
-
-  .t-toggle-button__option:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
-
-  .t-toggle-button__option:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-}
-
-// Individual option in toggle button
-.t-toggle-button__option {
-  display: inline-block;
-  float: left;
-  height: auto;
-  width: 13em;
-  padding: 0.875em;
-  font: inherit;
-  font-weight: 700;
-  color: #a59eb5;
-  text-decoration: none;
-  text-align: center;
-  margin: 0;
-  cursor: pointer;
-  overflow: visible;
-  border: 2px solid #716894;
-  vertical-align: middle;
-  -webkit-appearance: none;
-
-  span {
-    font-size: 14px;
-  }
-
-  // When checked the button is filled dark purple
-  &.js-checked {
-    background-color: #716894;
-    color: #ffffff;
-  }
-
-  // Hide the radio button
-  input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1; /* Put the input behind the label so it doesn't overlay text */
-  }
-
 }
