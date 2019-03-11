@@ -1,14 +1,12 @@
-
-
 <div class="scoreboard-list" [class.scoreboard-list--home-view]="tpl === 'home'">
-  <div class="live-results-container">
+  <div *ngIf="!!(liveGames$ | async)?.length" class="live-results-container">
     <header class="scoreboard-list__header">
       <p class="header__title header__title--live">Live</p>
       <a href="https://www.reddit.com/r/nbastreams/" target="_blank" title="Check out live streams"
         class="link">reddit.com/r/nbastreams</a>
     </header>
     <div class="games-container games-container--live">
-      <div *ngFor="let game of upcomingGames$ | async" class="game">
+      <div *ngFor="let game of liveGames$ | async" class="game">
         <div class="game__team">
           <a routerLink="/scores">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
@@ -73,13 +71,13 @@
       </div>
     </div>
   </div>
-
-  <div *ngIf="!(tpl === 'home')" class="final-results-container">
+  
+  <div *ngIf="!(tpl === 'home') && !!(liveGames$ | async)?.length" class="final-results-container">
     <header class="scoreboard-list__header">
       <p class="header__title header__title--final">Latest</p>
     </header>
     <div class="games-container games-container--final">
-      <div *ngFor="let game of upcomingGames$ | async" class="game">
+      <div *ngFor="let game of endedGames$ | async" class="game">
         <div class="game__team">
           <a routerLink="/scores">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
