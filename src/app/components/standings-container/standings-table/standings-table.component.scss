@@ -68,47 +68,32 @@ table {
   }
 }
 
-
-
-
-html,
-body {
-  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-  color: #404040;
-  height: 100%;
-  margin: 0;
+.button-container {
+  margin: 0 auto;
+  width: fit-content;
 }
 
-body {
-  padding: 0 20px;
-  color: #716894;
-}
+.conference-button {
+  @include clear-button;
+  color: $white;
+  width: 250px;
+  height: 50px;
+  transition: 0.1s ease;
+  @include karla-bold(16px);
+  color: $primary;
+  text-transform: uppercase;
+  box-shadow: inset 0px 2px 0px 0px $primary, inset 2px 0px 0px 0px $primary, inset -2px 0px 0px 0px $primary;
 
-.main {
-  width: 100%;
-  max-width: 640px;
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+  &--active {
+    background: $primary;
+    color: $white;
 
-label {
-  display: block;
-  margin-bottom: 1em;
-  font-size: 13px;
-  font-weight: bold;
-}
+    &:hover {
+      background: lighten($primary, 5);
+    }
 
-.chunk {
-  display: block;
-  width: 100%;
-  margin-bottom: 2.5em;
-  
-  &:after {
-      content: "";
-      display: table;
-      clear: both;
+    &:active {
+      background: darken($primary, 5);
+    }
   }
 }
