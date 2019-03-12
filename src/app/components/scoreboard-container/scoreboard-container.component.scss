@@ -1,0 +1,32 @@
+@import 'index';
+
+.scoreboard-lists {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 50px;
+
+  &--home-view {
+    grid-template-columns: minmax(400px, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
+
+.live-results-container {
+  grid-column: 1/5;
+}
+
+.upcoming-results-container {
+  grid-column: 1/3;
+  grid-row: span 2;
+
+  &--full-width {
+    grid-column: 1/-1;
+  }
+}
+
+.latest-results-container {
+  grid-column: 3/5;
+  grid-row: span 2;
+}
