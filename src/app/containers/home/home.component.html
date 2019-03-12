@@ -1,6 +1,6 @@
 <section class="container home">
   <header class="home__header">
-    <app-scoreboard-list tpl="home"></app-scoreboard-list>
+    <app-scoreboard-list [games]="liveGames$ | async" gamesType="live" class="live-results-container"></app-scoreboard-list>
   </header>
   <div class="player">
     asdasdas
