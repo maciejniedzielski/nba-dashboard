@@ -35,8 +35,11 @@ export class TeamsListComponent implements OnInit {
     );
   }
 
+  public clearSearchControl(): void {
+    this.searchFormControl.patchValue('');
+  }
+
   private transformString(fullName: string) {
     return fullName.replace(/\s/g, "").toLowerCase();
   }
-
 }

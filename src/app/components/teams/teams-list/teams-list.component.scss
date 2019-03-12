@@ -16,8 +16,16 @@
       text-align: center;
     }
 
+    .team__logo {
+      transition: .3s ease;
+    }
+
     &:hover {
       background: darken($app-background, 5%);
+
+      .team__logo {
+        transform: scale(1.1);
+      }
     }
   }
 }
