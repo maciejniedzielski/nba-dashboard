@@ -1,4 +1,4 @@
-<mat-form-field>
+<mat-form-field class="search-field">
   <input matInput type="text" placeholder="Search team..." [formControl]="searchFormControl">
   <button mat-button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchControl()">
     <mat-icon>close</mat-icon>
