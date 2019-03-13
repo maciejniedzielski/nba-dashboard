@@ -57,8 +57,23 @@
     }
 
     .player__photo {
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .player__description {
+      p:nth-child(1) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 150px;
+    padding: 10px;
+
+    &__photo {
+      width: 100%;
     }
   }
 }

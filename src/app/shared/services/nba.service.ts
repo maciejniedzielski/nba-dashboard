@@ -27,6 +27,14 @@ export class NbaService {
     return this.httpClient.get<Team>(this.appSettings.dataApiUrl + `/teams/${ teamId }`);
   }
 
+  public getTeamRosterById(teamNickname: string): Observable<any> {
+    return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/teams/roster/${ teamNickname }`);
+  }
+
+  public getTeamStatsById(teamId: number): Observable<any> {
+    return this.httpClient.get<any>(this.appSettings.statsApiUrl + `/team/${ teamId }`);
+  }
+
   public getScoreboard(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.appSettings.dataApiUrl + `/scoreboard`);
   }
@@ -38,5 +46,4 @@ export class NbaService {
   public getPlayerStats(playerId: number) {
     return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/players/${ playerId }`)
   }
-
 }

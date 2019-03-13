@@ -24,6 +24,8 @@ import { PlayersListComponent } from './components/players-list/players-list.com
 import { LoaderComponent } from './components/loader/loader.component';
 import { ScoreboardContainerComponent } from './components/scoreboard-container/scoreboard-container.component';
 import { ScoreboardListComponent } from './components/scoreboard-container/scoreboard-list/scoreboard-list.component';
+import { TeamDetailComponent } from './components/teams/team-detail/team-detail.component';
+import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ScoreboardListComponent } from './components/scoreboard-container/score
     PlayersListComponent,
     LoaderComponent,
     ScoreboardContainerComponent,
+    TeamDetailComponent,
+    TeamsItemComponent
   ],
   imports: [
     BrowserModule,

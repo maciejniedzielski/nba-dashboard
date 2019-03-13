@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./teams-list.component.scss']
 })
 export class TeamsListComponent implements OnInit {
-  
   public searchFormControl: FormControl = new FormControl();
   public filteredTeams$;
   private teams$: Observable<any>;

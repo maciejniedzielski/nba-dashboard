@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NbaService } from 'src/app/shared/services/nba.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-players-list',
@@ -8,14 +9,11 @@ import { NbaService } from 'src/app/shared/services/nba.service';
 })
 export class PlayersListComponent implements OnInit {
   
-  public players$;
+  @Input() players;
+  @Input() tpl = 'default';
 
-  constructor(
-    private nbaService: NbaService
-  ) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.players$ = this.nbaService.getPlayers();
+  ngOnInit() { 
   }
-
 }

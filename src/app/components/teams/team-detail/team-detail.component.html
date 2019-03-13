@@ -1,0 +1,24 @@
+<ng-container *ngIf="data">
+  <header [style.background-image]="generateTeamGradient(data.primaryColor)" class="team">
+    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.tricode }}.svg" alt="" class="team__logo">
+
+    <div>
+      <p class="team__city">{{ data.city }}</p>
+      <p class="team__nickname">{{ data.nickname }}</p>
+    </div>
+    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.tricode }}.svg" alt="" class="team__shadow-logo">
+  </header>
+
+  <div class="team-stats">
+
+  </div>
+
+  <div class="team-content-container">
+    <div class="team-roster">
+      <app-players-list [players]="data.roster.players.player" tpl="roster"></app-players-list>
+    </div>
+    <div class="team-games">
+      Team games
+    </div>
+  </div>
+</ng-container>
