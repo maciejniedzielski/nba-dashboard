@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, merge } from 'rxjs';
 import { AppSettings } from 'src/app/app.settings';
 import { Team } from '../models/team.model';
 import { Standings } from '../models/standings.model';
@@ -33,6 +33,10 @@ export class NbaService {
 
   public getTeamStatsById(teamId: number): Observable<any> {
     return this.httpClient.get<any>(this.appSettings.statsApiUrl + `/team/${ teamId }`);
+  }
+
+  public getTeamAvgGameStatsById(teamId: number): Observable<any> {
+    return this.httpClient.get<any>(this.appSettings.statsApiUrl + `/team/avg/${ teamId }`);
   }
 
   public getScoreboard(): Observable<any[]> {

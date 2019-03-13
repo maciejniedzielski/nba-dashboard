@@ -29,14 +29,19 @@ export class TeamsItemComponent implements OnInit {
           return teamData;
         })
       )),
-      tap(res => console.log('res1', res)),
       switchMap(teamData => this.nbaService.getTeamStatsById(+teamData.teamId).pipe(
         map(teamStats => { 
           teamData['stats'] = teamStats;
           return teamData;
         })
       )),
-      tap(res2 => console.log('res2', res2))
+      switchMap(teamData => this.nbaService.getTeamAvgGameStatsById(+teamData.teamId).pipe(
+        map(teamAvgGameStats => { 
+          teamData['avg'] = teamAvgGameStats;
+          return teamData;
+        })
+      )),
+      tap(console.log)
     );
     
     this.titleService.setTitle(this.capitalizeSlug(this.activatedRoute.snapshot.params.slug) + this.appSettings.appTabTitle);

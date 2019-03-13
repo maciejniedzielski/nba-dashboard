@@ -56,7 +56,7 @@
 
 .team-stats {
   background: darken($primary, 20%);
-  height: 150px;
+  min-height: 150px;
 }
 
 
@@ -90,5 +90,96 @@
     .team-games {
       width: 100%;
     }
+  }
+}
+
+.team-stats {
+  @include flex-align-justify(center, flex-start);
+  padding: 20px 10px;
+
+  &__avg, &__standings {
+    @include flex-align-justify(center, center);
+    width: 40%;
+    height: 100%;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      order: 2;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.stats__item {
+  @include flex-align-justify(center, center);
+  flex-direction: column;
+  padding: 10px 1.5vw;
+
+  @media screen and (max-width: 576px) {
+    width: 25%;
+  }
+
+  p {
+    @include karla-bold(24px);
+    color: $white;
+
+    @media screen and (max-width: 576px) {
+      @include karla-bold(22px);
+    }
+  }
+
+  .stats-title, .abbr {
+    @include karla-regular(18px);
+    margin-bottom: 5px;
+
+    @media screen and (max-width: 576px) {
+      @include karla-regular(14px);
+    }
+  }
+
+  .abbr {
+    cursor: help;
+    color: $white;
+    text-decoration: none;
+    transition: 200ms ease;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+}
+
+.general-standings {
+  @include karla-bold(62px);
+  width: 20%;
+  color: $white;
+  text-align: center;
+
+  span {
+    color: $primary;
+  }
+
+  @media screen and (max-width: 576px) {
+    @include karla-bold(48px);
+  }
+
+  @media screen and (max-width: 1024px) {
+    order: 1;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+.separator {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 90%;
+  height: 1px;
+
+  @media screen and (min-width: 576px) {
+    display: none;
   }
 }
