@@ -24,6 +24,7 @@ import { PlayersListComponent } from './components/players-list/players-list.com
 import { LoaderComponent } from './components/loader/loader.component';
 import { ScoreboardContainerComponent } from './components/scoreboard-container/scoreboard-container.component';
 import { ScoreboardListComponent } from './components/scoreboard-container/scoreboard-list/scoreboard-list.component';
+import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
 import { TeamDetailComponent } from './components/teams/team-detail/team-detail.component';
 import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
 
@@ -46,6 +47,7 @@ import { TeamsItemComponent } from './containers/teams-item/teams-item.component
     PlayersListComponent,
     LoaderComponent,
     ScoreboardContainerComponent,
+    PlayerDetailComponent,
     TeamDetailComponent,
     TeamsItemComponent
   ],

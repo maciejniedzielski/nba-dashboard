@@ -1,0 +1,22 @@
+<section *ngIf="data" class="player-detail">
+  <header class="player-detail__header">
+    <div>
+      <p class="firstname">{{data.firstName}}</p>
+      <p class="lastname">{{data.lastName}}</p>
+      
+      <div>
+          <p>{{ data.jersey }} | {{ data.posExpanded }}</p>
+          <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.teamData.tricode }}.svg" alt="">
+      </div>
+    </div>
+
+    <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ data.personId }}.png"
+      alt="" class="player__photo">
+
+    <div>
+      <p>Height (feet): {{data.heightFeet}}</p>
+      <p>Height (inch): {{data.heightInches}}</p>
+      <p>Weight (pounds): {{data.weightPounds}}</p>
+    </div>
+  </header>
+</section>
