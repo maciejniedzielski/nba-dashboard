@@ -41,7 +41,6 @@ export class TeamsItemComponent implements OnInit {
           return teamData;
         })
       )),
-      tap(console.log)
     );
     
     this.titleService.setTitle(this.capitalizeSlug(this.activatedRoute.snapshot.params.slug) + this.appSettings.appTabTitle);

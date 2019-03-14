@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AppSettings } from 'src/app/app.settings';
 import { NbaService } from 'src/app/shared/services/nba.service';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-players',
@@ -20,7 +21,7 @@ export class PlayersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.players$ = this.nbaService.getPlayers();
+    this.players$ = this.nbaService.getPlayers().pipe(shareReplay(1));
     this.titleService.setTitle(this.activatedRoute.snapshot.data.title + this.appSettings.appTabTitle);
   }
 }

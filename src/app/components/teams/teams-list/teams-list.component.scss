@@ -1,15 +1,5 @@
 @import 'index';
 
-.search-field {
-  display: block;
-  width: 300px;
-  margin: 0 auto;
-
-  @media screen and (max-width: 576px) {
-    width: 100%; 
-  }
-}
-
 .teams {
   @include flex-align-justify(center, space-between);
   flex-wrap: wrap;

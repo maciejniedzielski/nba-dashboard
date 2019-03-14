@@ -1,5 +1,12 @@
 <ng-container *ngIf="tpl === 'default'; else roster">
-  <div *ngIf="players; else loader" class="players">
+  <mat-form-field class="search-field">
+    <input matInput type="text" placeholder="Search player..." [formControl]="searchFormControl">
+    <button mat-button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchControl()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div *ngIf="filteredPlayers$ | async as players; else loader" class="players">
     <a routerLink="{{ player.playerUrl }}" *ngFor="let player of players" class="player-link">
       <div class="player">
         <div class="images">
@@ -16,7 +23,7 @@
 </ng-container>
 
 <ng-template #roster>
-  <div *ngIf="players; else loader" class="players">
+  <div *ngIf="players$ | async as players; else loader" class="players">
     <a routerLink="/players/{{ player.first_name }}/{{ player.last_name }}/{{ player.person_id }}/" *ngFor="let player of players" class="player-link">
       <div class="player">
         <div class="images">

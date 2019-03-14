@@ -1,0 +1,9 @@
+.search-field {
+  display: block !important;
+  width: 300px !important;
+  margin: 0 auto !important;
+
+  @media screen and (max-width: 576px) {
+    width: 100% !important; 
+  }
+}

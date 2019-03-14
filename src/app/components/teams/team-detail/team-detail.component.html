@@ -1,4 +1,4 @@
-<ng-container *ngIf="data; else loader">
+<ng-container *ngIf="data$ | async as data; else loader">
   <header [style.background-image]="generateTeamGradient(data.primaryColor)" class="team">
     <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.tricode }}.svg" alt="" class="team__logo">
 
@@ -59,7 +59,7 @@
 
   <div class="team-content-container">
     <div class="team-roster">
-      <app-players-list [players]="data.roster.players.player" tpl="roster"></app-players-list>
+      <app-players-list [players$]="teamRoster$" tpl="roster"></app-players-list>
     </div>
     <div class="team-games">
       Team games
