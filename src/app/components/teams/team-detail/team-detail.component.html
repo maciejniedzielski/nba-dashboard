@@ -1,0 +1,72 @@
+<ng-container *ngIf="data$ | async as data; else loader">
+  <header [style.background-image]="generateTeamGradient(data.primaryColor)" class="team">
+    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.tricode }}.svg" alt="" class="team__logo">
+
+    <div>
+      <p class="team__city">{{ data.city }}</p>
+      <p class="team__nickname">{{ data.nickname }}</p>
+    </div>
+    <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.tricode }}.svg" alt="" class="team__shadow-logo">
+  </header>
+
+  <div class="team-stats">
+    <div class="team-stats__avg">
+      <div class="stats__item">
+        <abbr title="Points per game" class="abbr">PPG</abbr>
+        <p>{{ data.avg.ppg.avg }}</p>
+      </div>
+      <div class="stats__item">
+        <abbr title="Opponent points per game" class="abbr">OPPG</abbr>
+        <p>{{ data.avg.ppg.avg }}</p>
+      </div>
+      <div class="stats__item">
+        <abbr title="Rebounds per game" class="abbr">RPG</abbr>
+        <p>{{ data.avg.ppg.avg }}</p>
+      </div>
+      <div class="stats__item">
+        <abbr title="Assists per game" class="abbr">APG</abbr>
+        <p>{{ data.avg.ppg.avg }}</p>
+      </div>
+    </div>
+    
+    <div class="general-standings">
+      <p>{{ data.stats.win }} <span>|</span> {{ data.stats.loss }}</p>
+      <div class="separator" [style.background]="data.primaryColor"></div>
+    </div>
+
+    <div class="team-stats__standings">
+      <div class="stats__item">
+        <p class="stats-title">HOME</p>
+        <p>{{ data.stats.homeWin }} : {{ data.stats.homeLoss }}</p>
+      </div>
+  
+      <div class="stats__item">
+        <p class="stats-title">AWAY</p>
+        <p>{{ data.stats.awayWin }} : {{ data.stats.awayLoss }}</p>
+      </div>
+  
+      <div class="stats__item">
+        <p class="stats-title">CONF</p>
+        <p>{{ data.stats.confWin }} : {{ data.stats.confLoss }}</p>
+      </div>
+  
+      <div class="stats__item">
+        <p class="stats-title">DIV</p>
+        <p>{{ data.stats.divWin }} : {{ data.stats.divLoss }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-content-container">
+    <div class="team-roster">
+      <app-players-list [players$]="teamRoster$" tpl="roster"></app-players-list>
+    </div>
+    <div class="team-games">
+      Team games
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

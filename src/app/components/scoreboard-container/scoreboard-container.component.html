@@ -1,0 +1,6 @@
+<div class="scoreboard-lists">
+  <app-scoreboard-list [games]="liveGames$ | async" gamesType="live" class="live-results-container"></app-scoreboard-list>
+  <app-scoreboard-list [games]="upcomingGames$ | async" gamesType="upcoming" class="upcoming-results-container"
+    [class.upcoming-results-container--full-width]="!(liveGames$ | async).length && !(latestGames$ | async).length"></app-scoreboard-list>
+  <app-scoreboard-list [games]="latestGames$ | async" gamesType="latest" class="latest-results-container"></app-scoreboard-list>
+</div>

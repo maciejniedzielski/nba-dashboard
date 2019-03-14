@@ -1,23 +1,47 @@
 @import 'index';
 
 .teams {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  @include flex-align-justify(center, space-between);
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 576px) {
+    justify-content: center;
+  }
 
   .team {
-    display: flex;
+    width: 20%; 
+    @include flex-align-justify(center, center);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: $app-background;
     padding: 30px;
+
+    @media screen and (max-width: 968px) {
+      width: 30%; 
+    }
+
+    @media screen and (max-width: 576px) {
+      width: 50%; 
+    }
     
     figcaption {
       text-align: center;
     }
 
+    .team__logo {
+      transition: .3s ease;
+      width: 150px;
+
+      @media screen and (max-width: 576px) {
+        width: 120px;
+      }
+    }
+
     &:hover {
       background: darken($app-background, 5%);
+
+      .team__logo {
+        transform: scale(1.1);
+      }
     }
   }
 }

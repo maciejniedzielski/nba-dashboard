@@ -3,3 +3,10 @@
   align-items: $align;
   justify-content: $justify;
 }
+
+@mixin clear-button {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

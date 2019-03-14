@@ -13,8 +13,8 @@
   <ng-container *ngIf="standings$ | async as standings; else loader">
     <app-standings-table [standings]="standings" class="table"></app-standings-table>
   </ng-container>
-
-  <ng-container *ngIf="standings$ | async as standings; else loader" >
+  
+  <ng-container *ngIf="standings$ | async as standings; else loader">
     <app-standings-list *ngFor="let conference of objectKeys(standings) as conference"
       [standings]="standings" [conference]="conference" class="list"></app-standings-list>
   </ng-container>

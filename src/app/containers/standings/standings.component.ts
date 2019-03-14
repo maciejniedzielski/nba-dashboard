@@ -9,6 +9,7 @@ import { AppSettings } from 'src/app/app.settings';
   styleUrls: ['./standings.component.scss']
 })
 export class StandingsComponent implements OnInit {
+  public standingsViewType: string = 'table';
 
   public constructor(
     private appSettings: AppSettings,
@@ -18,5 +19,9 @@ export class StandingsComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle(this.activatedRoute.snapshot.data.title + this.appSettings.appTabTitle);
+  }
+
+  public changeStandingsViewType(type: string): void {
+    this.standingsViewType = type; 
   }
 }

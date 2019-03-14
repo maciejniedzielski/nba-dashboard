@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./teams-list.component.scss']
 })
 export class TeamsListComponent implements OnInit {
-  
   public searchFormControl: FormControl = new FormControl();
   public filteredTeams$;
   private teams$: Observable<any>;
@@ -35,8 +34,11 @@ export class TeamsListComponent implements OnInit {
     );
   }
 
+  public clearSearchControl(): void {
+    this.searchFormControl.patchValue('');
+  }
+
   private transformString(fullName: string) {
     return fullName.replace(/\s/g, "").toLowerCase();
   }
-
 }

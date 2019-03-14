@@ -5,9 +5,11 @@
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
+  margin-top: 70px;
 
   &__header {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 999;
     box-shadow: 0 0px 15px #00000070;

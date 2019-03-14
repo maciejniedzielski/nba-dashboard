@@ -1,4 +1,13 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div class="button-container">
+  <button [class.conference-button--active]="conference.value === 'west'" class="conference-button" (click)="changeConference('west')">
+    West
+  </button>
+  <button [class.conference-button--active]="conference.value === 'east'" class="conference-button" (click)="changeConference('east')">
+    East
+  </button>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="standings-table">
   <ng-container matColumnDef="teamName">
     <th mat-header-cell *matHeaderCellDef class="header"></th>
     <td mat-cell *matCellDef="let team" >
@@ -63,6 +72,6 @@
     <td mat-cell *matCellDef="let team" class="center">{{ team.streak }}</td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="data-row"></tr>
 </table>

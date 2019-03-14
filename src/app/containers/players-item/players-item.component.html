@@ -3,30 +3,5 @@
     <a href="/teams" class="link">Back to teams</a>
   </header>
 
-  <div class="data">
-    <div>
-        <p class="firstname">{{data.firstName}}</p>
-        <p class="lastname">{{data.lastName}}</p>
-    </div>
-    <div>
-        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ data.teamData.tricode }}.svg" alt="">
-        <p>{{ data.jersey }} | {{ data.posExpanded }}</p>
-    </div>    
-    <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ data.personId }}.png" alt="" class="player__photo">
-
-    
-  </div>
-
-  <div>
-    <p>{{data.heightFeet}}</p>
-    <p>{{data.heightInches}}</p>
-    <p>{{data.weightPounds}}</p>
-  </div>
-  <div>
-    <p>born: 12 12 1222</p>
-    <p>from: Davidon</p>
-    <p>nba debut</p>
-    <p>from: Davidon</p>
-  </div>
-
+  <app-player-detail [playerData]="data"></app-player-detail>
 </section>

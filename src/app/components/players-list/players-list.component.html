@@ -1,17 +1,41 @@
-<div *ngIf="players$ | async as players; else loader" class="players">
-  <a routerLink="{{ player.playerUrl }}" *ngFor="let player of players" class="player-link">
-    <div class="player">
-      <div class="images">
-        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="" class="player__team-logo">
-        <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.personId }}.png" alt="" class="player__photo">
+<ng-container *ngIf="tpl === 'default'; else roster">
+  <mat-form-field class="search-field">
+    <input matInput type="text" placeholder="Search player..." [formControl]="searchFormControl">
+    <button mat-button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchControl()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div *ngIf="filteredPlayers$ | async as players; else loader" class="players">
+    <a routerLink="{{ player.playerUrl }}" *ngFor="let player of players" class="player-link">
+      <div class="player">
+        <div class="images">
+          <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="" class="player__team-logo">
+          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.personId }}.png" alt="" class="player__photo">
+        </div>
+        <div class="player__description">
+          <p>{{ player.firstName }} {{ player.lastName }}</p>
+          <p>{{ player.teamData.city }} {{ player.teamData.nickname }} | {{ player.jersey }}</p>
+        </div>
       </div>
-      <div class="player__description">
-        <p>{{ player.firstName }} {{ player.lastName }}</p>
-        <p>{{ player.teamData.city }} {{ player.teamData.nickname }} | {{ player.jersey }}</p>
+    </a>
+  </div>
+</ng-container>
+
+<ng-template #roster>
+  <div *ngIf="players$ | async as players; else loader" class="players">
+    <a routerLink="/players/{{ player.first_name }}/{{ player.last_name }}/{{ player.person_id }}/" *ngFor="let player of players" class="player-link">
+      <div class="player">
+        <div class="images">
+          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.person_id }}.png" alt="" class="player__photo">
+        </div>
+        <div class="player__description">
+          <p>{{ player.first_name }} {{ player.last_name }}</p>
+        </div>
       </div>
-    </div>
-  </a>
-</div>
+    </a>
+  </div>
+</ng-template>
 
 <ng-template #loader>
   <app-loader></app-loader>
