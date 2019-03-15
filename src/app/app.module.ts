@@ -27,6 +27,7 @@ import { ScoreboardListComponent } from './components/scoreboard-container/score
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
 import { TeamDetailComponent } from './components/teams/team-detail/team-detail.component';
 import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
+import { AppStoreModule } from './store/app-store.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { TeamsItemComponent } from './containers/teams-item/teams-item.component
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    AppStoreModule
   ],
   providers: [
     AppSettings,
