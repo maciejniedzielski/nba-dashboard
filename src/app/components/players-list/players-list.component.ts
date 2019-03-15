@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { distinctUntilChanged, debounceTime, startWith, switchMap, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { StringConventer } from 'src/app/shared/classes/string-converter';
 
 const DEBOUCE_TIME = 200;
 @Component({
@@ -23,7 +24,7 @@ export class PlayersListComponent implements OnInit {
       switchMap((inputValue: string) => this.players$.pipe(
         map((players: any[]) =>
           players.filter(player =>
-            this.transformString(player.firstName + player.lastName).includes(this.transformString(inputValue))
+            StringConventer.transformString(player.firstName + player.lastName).includes(StringConventer.transformString(inputValue))
           )
         )
       ))
@@ -37,9 +38,5 @@ export class PlayersListComponent implements OnInit {
   public handleError(event: { target: HTMLImageElement }): void {
     event.target.src = 'assets/images/player-placeholder.png';
     event.target.classList.add('player__photo--placeholder');
-  }
-
-  private transformString(fullName: string) {
-    return fullName.replace(/\s/g, "").toLowerCase();
   }
 }

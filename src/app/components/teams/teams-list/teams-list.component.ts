@@ -3,6 +3,7 @@ import { NbaService } from 'src/app/shared/services/nba.service';
 import { FormControl } from '@angular/forms';
 import { distinctUntilChanged, startWith, switchMap, map, debounceTime, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { StringConventer } from 'src/app/shared/classes/string-converter';
 
 @Component({
   selector: 'app-teams-list',
@@ -28,7 +29,7 @@ export class TeamsListComponent implements OnInit {
       startWith(''),
       switchMap((inputValue: string) => this.teams$.pipe(
         map(teams => teams.filter(team => 
-          this.transformString(team['fullName']).includes(this.transformString(inputValue))
+          StringConventer.transformString(team['fullName']).includes(StringConventer.transformString(inputValue))
         ))
       ))
     );
@@ -36,9 +37,5 @@ export class TeamsListComponent implements OnInit {
 
   public clearSearchControl(): void {
     this.searchFormControl.patchValue('');
-  }
-
-  private transformString(fullName: string) {
-    return fullName.replace(/\s/g, "").toLowerCase();
   }
 }
