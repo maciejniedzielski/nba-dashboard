@@ -11,7 +11,8 @@
       <div class="player">
         <div class="images">
           <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="" class="player__team-logo">
-          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.personId }}.png" alt="" class="player__photo">
+          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.personId }}.png"
+            alt="" class="player__photo" (error)="handleError($event)">
         </div>
         <div class="player__description">
           <p>{{ player.firstName }} {{ player.lastName }}</p>
@@ -27,7 +28,8 @@
     <a routerLink="/players/{{ player.first_name }}/{{ player.last_name }}/{{ player.person_id }}/" *ngFor="let player of players" class="player-link">
       <div class="player">
         <div class="images">
-          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.person_id }}.png" alt="" class="player__photo">
+          <img src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{ player.person_id }}.png"
+            alt="" class="player__photo" (error)="handleError($event)">
         </div>
         <div class="player__description">
           <p>{{ player.first_name }} {{ player.last_name }}</p>

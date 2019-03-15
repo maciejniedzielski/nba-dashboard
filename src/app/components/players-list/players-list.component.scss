@@ -18,6 +18,7 @@
   .images {
     position: relative;
     top: 3px;
+    @include flex-align-justify(center, center);
   }
 
   &__photo {
@@ -27,6 +28,10 @@
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     transition: .5s ease;
+
+    &--placeholder {
+      width: 140px;
+    }
   }
 
   &__team-logo {
@@ -74,6 +79,9 @@
 
     &__photo {
       width: 100%;
+      &--placeholder {
+        width: 90px;
+      }
     }
   }
 }

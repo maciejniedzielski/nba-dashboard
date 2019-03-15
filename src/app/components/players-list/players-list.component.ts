@@ -34,6 +34,11 @@ export class PlayersListComponent implements OnInit {
     this.searchFormControl.patchValue('');
   }
 
+  public handleError(event: { target: HTMLImageElement }): void {
+    event.target.src = 'assets/images/player-placeholder.png';
+    event.target.classList.add('player__photo--placeholder');
+  }
+
   private transformString(fullName: string) {
     return fullName.replace(/\s/g, "").toLowerCase();
   }
