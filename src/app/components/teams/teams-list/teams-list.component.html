@@ -6,7 +6,7 @@
 </mat-form-field>
 <section *ngIf="hasTeamsLoaded$ | async; else loader" class="teams">
   <div *ngFor="let team of filteredTeams$ | async" class="team">   
-    <a routerLink="/teams/{{ team.teamId }}/{{ team.urlName }}" class="link">
+    <a routerLink="/teams/{{ team.teamId }}" class="link">
       <figure>
         <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.tricode }}.svg" alt="" class="team__logo">
         <figcaption>{{ team.fullName }}</figcaption>  

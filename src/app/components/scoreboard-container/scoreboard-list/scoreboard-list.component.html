@@ -6,7 +6,7 @@
     <ng-container *ngIf="games?.length; else noGames">
       <div *ngFor="let game of games" class="game">
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>
@@ -23,7 +23,7 @@
           </ng-template>
         </div>
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>
@@ -45,7 +45,7 @@
     <ng-container *ngIf="games?.length; else noGames">
       <div *ngFor="let game of games" class="game">
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.hTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>
@@ -81,7 +81,7 @@
     <ng-container *ngIf="games?.length; else noGames">
       <div *ngFor="let game of games" class="game game--latest">
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.hTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>
@@ -95,7 +95,7 @@
           </p>
         </div>
         <div class="game__team">
-          <a routerLink="/scores">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
             <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
               class="team__logo">
           </a>

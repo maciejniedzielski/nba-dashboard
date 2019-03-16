@@ -43,10 +43,10 @@ export class TeamsItemComponent implements OnInit {
       )),
     );
     
-    this.titleService.setTitle(this.capitalizeSlug(this.activatedRoute.snapshot.params.slug) + this.appSettings.appTabTitle);
+    // this.titleService.setTitle(this.capitalizeSlug(this.activatedRoute.snapshot.params.slug) + this.appSettings.appTabTitle);
   }
 
-  private capitalizeSlug(slug): string {
-    return slug.charAt(0).toUpperCase() + slug.slice(1);
-  }
+  // private capitalizeSlug(slug): string {
+  //   return slug.charAt(0).toUpperCase() + slug.slice(1);
+  // }
 }

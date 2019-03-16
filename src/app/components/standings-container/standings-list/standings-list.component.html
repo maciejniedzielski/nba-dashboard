@@ -14,7 +14,7 @@
         <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.data.tricode }}.svg" alt=""
           class="team__logo">
         <figcaption class="team__name">
-          <a routerLink="/teams" class="link">{{ team.data.fullName }}</a>
+          <a routerLink="/teams/{{ team.data.teamId }}"  class="link">{{ team.data.fullName }}</a>
         </figcaption>
       </figure>
 

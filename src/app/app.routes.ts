@@ -47,7 +47,7 @@ export const AppRoutes: Routes = [
     component: PlayersItemComponent
   },
   { 
-    path: 'teams/:id/:slug',
+    path: 'teams/:id',
     component: TeamsItemComponent,
   },
   {
