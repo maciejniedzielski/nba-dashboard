@@ -9,10 +9,7 @@
 
   &__header {
     grid-column: 1/2;
-    position: sticky;
-    top: 70px;
-    z-index: 998;
-    background: #e5e7e9;
+    background: $app-background;
   }
 
   &__content {
