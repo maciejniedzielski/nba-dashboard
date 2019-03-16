@@ -28,6 +28,7 @@ import { PlayerDetailComponent } from './components/player-detail/player-detail.
 import { TeamDetailComponent } from './components/teams/team-detail/team-detail.component';
 import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
 import { AppStoreModule } from './store/app-store.module';
+import { ConferenceSwitcherComponent } from './components/conference-switcher/conference-switcher.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AppStoreModule } from './store/app-store.module';
     ScoreboardContainerComponent,
     PlayerDetailComponent,
     TeamDetailComponent,
-    TeamsItemComponent
+    TeamsItemComponent,
+    ConferenceSwitcherComponent
   ],
   imports: [
     BrowserModule,

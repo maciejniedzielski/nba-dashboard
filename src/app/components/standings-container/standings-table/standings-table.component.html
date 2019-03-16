@@ -1,12 +1,4 @@
-<div class="button-container">
-  <button [class.conference-button--active]="conference.value === 'west'" class="conference-button" (click)="changeConference('west')">
-    West
-  </button>
-  <button [class.conference-button--active]="conference.value === 'east'" class="conference-button" (click)="changeConference('east')">
-    East
-  </button>
-</div>
-
+<app-conference-switcher></app-conference-switcher>
 <table mat-table [dataSource]="dataSource" matSort class="standings-table">
   <ng-container matColumnDef="teamName">
     <th mat-header-cell *matHeaderCellDef class="header"></th>

@@ -67,33 +67,3 @@
     @include karla-bold(14px);
   }
 }
-
-.button-container {
-  margin: 0 auto;
-  width: fit-content;
-}
-
-.conference-button {
-  @include clear-button;
-  color: $white;
-  width: 250px;
-  height: 50px;
-  transition: 0.1s ease;
-  @include karla-bold(16px);
-  color: $primary;
-  text-transform: uppercase;
-  box-shadow: inset 0px 2px 0px 0px $primary, inset 2px 0px 0px 0px $primary, inset -2px 0px 0px 0px $primary;
-
-  &--active {
-    background: $primary;
-    color: $white;
-
-    &:hover {
-      background: lighten($primary, 5);
-    }
-
-    &:active {
-      background: darken($primary, 5);
-    }
-  }
-}

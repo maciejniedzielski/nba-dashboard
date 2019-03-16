@@ -23,6 +23,7 @@ export function logger(reducer: ActionReducer<CoreReducer.State>): any {
 export const reducers: ActionReducerMap<CoreReducer.State> = {
   team: CoreReducer.fromTeam.reducer,
   player: CoreReducer.fromPlayer.reducer,
+  standings: CoreReducer.fromStandings.reducer,
 };
 
 export const metaReducers = environment.production ? [] : [logger];

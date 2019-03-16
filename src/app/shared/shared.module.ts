@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
   ]
 })
 export class SharedModule { }
