@@ -5,9 +5,8 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-
-  <div *ngIf="filteredPlayers$ | async as players; else loader" class="players">
-    <a routerLink="{{ player.playerUrl }}" *ngFor="let player of players" class="player-link">
+  <div *ngIf="hasPlayersLoaded$ | async; else loader" class="players">
+    <a routerLink="{{ player.playerUrl }}" *ngFor="let player of filteredPlayers$ | async" class="player-link">
       <div class="player">
         <div class="images">
           <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="" class="player__team-logo">

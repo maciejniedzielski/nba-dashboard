@@ -184,3 +184,10 @@
     display: none;
   }
 }
+
+.content-heading {
+  @include karla-bold(22px);
+  text-transform: uppercase;
+  color: $primary;
+  padding: 20px 7.3vw;
+}

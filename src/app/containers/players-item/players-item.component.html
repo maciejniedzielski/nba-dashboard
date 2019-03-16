@@ -1,7 +1,3 @@
-<section class="container">
-  <header>
-    <a href="/teams" class="link">Back to teams</a>
-  </header>
-
-  <app-player-detail [playerData]="data"></app-player-detail>
+<section>
+  <app-player-detail [playerData]="player$ | async" [playerTeamConfig]="playerTeamConfig$ | async"></app-player-detail>
 </section>

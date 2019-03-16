@@ -21,5 +21,4 @@ export class TeamDetailComponent implements OnInit {
   generateTeamGradient(teamColor: string): string {
     return `linear-gradient(to right, ${ teamColor }, #1d428a)`;
   }
-
 }

@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { distinctUntilChanged, debounceTime, startWith, switchMap, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { StringConventer } from 'src/app/shared/classes/string-converter';
+import { Observable } from 'rxjs';
+import { CoreReducer } from 'src/app/store/reducers';
+import { Store } from '@ngrx/store';
 
 const DEBOUCE_TIME = 200;
 @Component({
@@ -13,10 +16,16 @@ export class PlayersListComponent implements OnInit {
 
   @Input() players$;
   @Input() tpl = 'default';
+
+  public hasPlayersLoaded$: Observable<boolean>;
   public searchFormControl: FormControl = new FormControl();
   public filteredPlayers$;
 
+  constructor(private _store: Store<CoreReducer.State>) {}
+
   ngOnInit() {
+    this.hasPlayersLoaded$ = this._store.select(CoreReducer.hasPlayersLoaded);
+
     this.filteredPlayers$ = this.searchFormControl.valueChanges.pipe(
       distinctUntilChanged(),
       debounceTime(DEBOUCE_TIME),

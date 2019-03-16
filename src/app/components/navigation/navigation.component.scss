@@ -92,12 +92,21 @@
 }
 
 .hamburger {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 50px;
+  transition: 300ms ease;
+  padding: 15px 0;
+
   .line{
     width: 30px;
     height: 2px;
     background-color: #ecf0f1;
     display: block;
-    margin: 8px auto;
     transition: all 0.3s ease-in-out;
   }
 
@@ -115,6 +124,7 @@
 
   &:hover{
     cursor: pointer;
+    background: darken($primary, 5%);
   }
 
   @media screen and (min-width: 576px) {

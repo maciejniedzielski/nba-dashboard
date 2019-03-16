@@ -35,6 +35,10 @@ export class NbaService {
     return this.httpClient.get<any>(this.appSettings.statsApiUrl + `/team/${ teamId }`);
   }
 
+  public getTeamConfigByTricode(teamTricode: string): Observable<any> {
+    return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/team/getConfigData/${ teamTricode }`);
+  }
+
   public getTeamAvgGameStatsById(teamId: number): Observable<any> {
     return this.httpClient.get<any>(this.appSettings.statsApiUrl + `/team/avg/${ teamId }`);
   }
@@ -47,7 +51,7 @@ export class NbaService {
     return this.httpClient.get<any[]>(this.appSettings.dataApiUrl + `/players`);
   }
 
-  public getPlayerStats(playerId: number) {
+  public getPlayerById(playerId: number) {
     return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/players/${ playerId }`)
   }
 }

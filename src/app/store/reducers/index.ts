@@ -14,10 +14,14 @@ export namespace CoreReducer {
 
   export const getTeamState = (state: State) => state.team;
   export const getTeams = createSelector(getTeamState, fromTeam.getTeams);
+  export const getTeamConfig = createSelector(getTeamState, fromTeam.getTeamConfig);
   export const hasTeamsLoaded = createSelector(getTeamState, fromTeam.hasTeamsLoaded);
+  export const hasTeamConfigLoaded = createSelector(getTeamState, fromTeam.hasTeamConfigLoaded);
 
+  
   export const getPlayerState = (state: State) => state.player;
   export const getPlayers = createSelector(getPlayerState, fromPlayer.getPlayers);
+  export const getPlayer = createSelector(getPlayerState, fromPlayer.getPlayer);
   export const hasPlayersLoaded = createSelector(getPlayerState, fromPlayer.hasPlayersLoaded);
-
+  export const hasPlayerLoaded = createSelector(getPlayerState, fromPlayer.hasPlayerLoaded);
 }

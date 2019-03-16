@@ -1,30 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { AppSettings } from 'src/app/app.settings';
-
-const mock = {
-  "firstName": "Steven",
-  "lastName": "Adams",
-  "jersey": "12",
-  "pos": "C",
-  "posExpanded": "Center",
-  "heightFeet": "7",
-  "heightInches": "0",
-  "weightPounds": "265",
-  "personId": "203500",
-  "teamData": {
-    "urlName": "thunder",
-    "city": "Oklahoma City",
-    "nickname": "Thunder",
-    "tricode": "OKC"
-  },
-  "isAllStar": false,
-  "orderChar": "A",
-  "playerUrl": "/players/steven/adams/203500",
-  "displayName": "Adams, Steven"
-}
-
-const mockId = 203500;
+import { CoreReducer } from 'src/app/store/reducers';
+import { Store } from '@ngrx/store';
+import { PlayerStoreActions } from 'src/app/store/actions';
+import { ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-players-item',
@@ -33,15 +12,21 @@ const mockId = 203500;
 })
 export class PlayersItemComponent implements OnInit {
 
-  public data = mock;
+  public playerTeamConfig$;
+  public player$;
+
+  public hasPlayerLoaded$;
+  public hasTeamConfigLoaded$;
 
   public constructor(
-    private appSettings: AppSettings,
-    private titleService: Title
+    private _store: Store<CoreReducer.State>,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
 
   ngOnInit() {
-    this.titleService.setTitle('Stephen Curry' + this.appSettings.appTabTitle);
+    this._store.dispatch(new PlayerStoreActions.LoadPlayer(this._activatedRoute.snapshot.params.id));
+    this.player$ = this._store.select(CoreReducer.getPlayer).pipe(filter(Boolean));
+    this.playerTeamConfig$ = this._store.select(CoreReducer.getTeamConfig).pipe(filter(Boolean));
   }
 }
