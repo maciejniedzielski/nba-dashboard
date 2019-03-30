@@ -1,7 +1,7 @@
 <!-- LIST VIEW -->
 <ng-container *ngIf="tpl === 'list'; else tableView">
+  <app-conference-switcher class="standings-conference-switcher"></app-conference-switcher>
   <div class="standings">
-    <app-conference-switcher></app-conference-switcher>
     <ng-container *ngIf="standings$ | async as standings; else loader">
       <app-standings-list *ngFor="let conference of objectKeys(standings) as conference"
         [standings]="standings" [conference]="conference" class="standings-list"></app-standings-list>

@@ -28,3 +28,11 @@
     margin-bottom: 50px;
   }
 }
+
+.standings-conference-switcher {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+}
