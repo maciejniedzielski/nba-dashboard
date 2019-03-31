@@ -20,11 +20,11 @@ import { TeamsListComponent } from './components/teams/teams-list/teams-list.com
 import { StandingsTableComponent } from './components/standings-container/standings-table/standings-table.component';
 import { StandingsComponent } from './containers/standings/standings.component';
 import { SharedModule } from './shared/shared.module';
-import { PlayersListComponent } from './components/players-list/players-list.component';
+import { PlayersListComponent } from './components/players/players-list/players-list.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ScoreboardContainerComponent } from './components/scoreboard-container/scoreboard-container.component';
 import { ScoreboardListComponent } from './components/scoreboard-container/scoreboard-list/scoreboard-list.component';
-import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
+import { PlayerDetailComponent } from './components/players/player-detail/player-detail.component';
 import { TeamDetailComponent } from './components/teams/team-detail/team-detail.component';
 import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
 import { AppStoreModule } from './store/app-store.module';
