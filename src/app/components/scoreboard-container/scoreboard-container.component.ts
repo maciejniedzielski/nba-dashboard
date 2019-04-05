@@ -24,8 +24,8 @@ export class ScoreboardContainerComponent implements OnInit {
   constructor(private nbaService: NbaService) { }
 
   ngOnInit() {
-    // this.games$ = this.nbaService.getScoreboard().pipe(tap(console.log),shareReplay());
-    this.games$ = of(mockGames);
+    this.games$ = this.nbaService.getScoreboard().pipe(shareReplay());
+    // this.games$ = of(mockGames);
 
     this.upcomingGames$ = this.games$.pipe(
       map(games => games.filter(game => game.statusNum === GameStatus.UPCOMING))

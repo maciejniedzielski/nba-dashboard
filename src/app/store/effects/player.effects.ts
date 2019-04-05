@@ -26,7 +26,7 @@ export class PlayerEffects {
           return new PlayerStoreActions.LoadPlayersSuccess(players);
         }),
         catchError(() => {
-          return of(new PlayerStoreActions.LoadPlayersFailure);
+          return of(new PlayerStoreActions.LoadPlayersFailure());
         })
       ))
     );
@@ -36,14 +36,27 @@ export class PlayerEffects {
       .pipe(
         ofType(PlayerActionTypes.LOAD_PLAYER),
         switchMap((action: PlayerStoreActions.LoadPlayer) => this._nbaService.getPlayerById(action.payload).pipe(
-          tap(player => console.log(player)),          
           tap(player => this._titleService.setTitle(`${player.firstName} ${player.lastName}` + this._appSettings.appTabTitle)),
           switchMap((player: Player) => [
             new TeamStoreActions.LoadTeamConfig(player.teamData.tricode),
             new PlayerStoreActions.LoadPlayerSuccess(player)
           ]),
           catchError(() => {
-            return of(new PlayerStoreActions.LoadPlayerFailure);
+            return of(new PlayerStoreActions.LoadPlayerFailure());
+          })
+        ))
+      );
+
+    @Effect()
+    loadPlayerData: Observable<Action> = this._actions$
+      .pipe(
+        ofType(PlayerActionTypes.LOAD_PLAYER),
+        switchMap((action: PlayerStoreActions.LoadPlayer) => this._nbaService.getPlayerStatsById(action.payload).pipe(
+          switchMap((playerStats: unknown) => [
+            new PlayerStoreActions.LoadPlayerStatsSuccess(playerStats)
+          ]),
+          catchError(() => {
+            return of(new PlayerStoreActions.LoadPlayerStatsFailure());
           })
         ))
       );

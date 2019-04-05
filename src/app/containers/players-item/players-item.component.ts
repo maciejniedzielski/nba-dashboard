@@ -26,6 +26,7 @@ export class PlayersItemComponent implements OnInit {
 
   ngOnInit() {
     this._store.dispatch(new PlayerStoreActions.LoadPlayer(this._activatedRoute.snapshot.params.id));
+    this._store.dispatch(new PlayerStoreActions.LoadPlayerStats(this._activatedRoute.snapshot.params.id));
     this.player$ = this._store.select(CoreReducer.getPlayer).pipe(filter(Boolean));
     this.playerTeamConfig$ = this._store.select(CoreReducer.getTeamConfig).pipe(filter(Boolean));
   }

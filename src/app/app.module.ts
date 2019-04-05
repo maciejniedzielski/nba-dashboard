@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './containers/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { StandingsContainerComponent } from './components/standings-container/standings-container.component';
-import { ResultsComponent } from './components/results/results.component';
 import { TeamsComponent } from './containers/teams/teams.component';
 import { ScoresComponent } from './containers/scores/scores.component';
 import { PlayersComponent } from './containers/players/players.component';
@@ -36,7 +35,6 @@ import { ConferenceSwitcherComponent } from './components/conference-switcher/co
     HomeComponent,
     NavigationComponent,
     StandingsContainerComponent,
-    ResultsComponent,
     TeamsComponent,
     ScoresComponent,
     PlayersComponent,

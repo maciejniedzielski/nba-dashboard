@@ -8,10 +8,12 @@ export enum PlayerActionTypes {
   LOAD_PLAYER = '[Player] Load player data',
   LOAD_PLAYER_SUCCESS = '[Player] Load player data success!',
   LOAD_PLAYER_FAILURE = '[Player] Load player data failure!',
+  LOAD_PLAYER_STATS = '[Player] Load player data',
+  LOAD_PLAYER_STATS_SUCCESS = '[Player] Load player stats success!',
+  LOAD_PLAYER_STATS_FAILURE = '[Player] Load player stats failure!',
 }
 
 export namespace PlayerStoreActions {
-
   export class LoadPlayers implements Action {
     readonly type = PlayerActionTypes.LOAD_PLAYERS;
   }
@@ -41,11 +43,30 @@ export namespace PlayerStoreActions {
   export class LoadPlayerFailure implements Action {
     readonly type = PlayerActionTypes.LOAD_PLAYER_FAILURE;
   }
+  
+  export class LoadPlayerStats implements Action {
+    readonly type = PlayerActionTypes.LOAD_PLAYER_STATS;
+
+    constructor(public payload: number) {}
+  }
+
+  export class LoadPlayerStatsSuccess implements Action {
+    readonly type = PlayerActionTypes.LOAD_PLAYER_STATS_SUCCESS;
+
+    constructor(public payload: any) {}
+  }
+
+  export class LoadPlayerStatsFailure implements Action {
+    readonly type = PlayerActionTypes.LOAD_PLAYER_STATS_FAILURE;
+  }
 
   export type PlayerActions = LoadPlayers
     | LoadPlayersSuccess
     | LoadPlayersFailure
     | LoadPlayer
     | LoadPlayerSuccess
-    | LoadPlayerFailure;
+    | LoadPlayerFailure
+    | LoadPlayerStats
+    | LoadPlayerStatsSuccess
+    | LoadPlayerStatsFailure;
 }

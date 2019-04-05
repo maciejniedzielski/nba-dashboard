@@ -10,3 +10,20 @@
   border: none;
   cursor: pointer;
 }
+
+@mixin styled-scrollbar {
+  &::-webkit-scrollbar-track {
+    border-radius: 5px;
+    height: 5px;
+    background-color: $gray-separator;
+  }
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    background-color: $gray-separator;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary;
+  }
+}

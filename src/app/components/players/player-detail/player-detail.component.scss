@@ -13,6 +13,10 @@
       flex-direction: column;
     }
   }
+
+  &__content {
+    padding: 50px 7.3vw;
+  }
 }
 
 .back-link {
@@ -143,4 +147,41 @@
       padding: 10px;
     }
   }
+}
+
+.dimensions {
+  color: $white;
+  @include karla-regular(18px);
+  margin: 5px 0;
+}
+
+.table-container {
+  overflow-x: scroll;
+  @include styled-scrollbar;
+  margin-bottom: 50px;
+}
+
+.stats-table {
+  width: 100%;
+
+  &__header {
+    text-transform: uppercase;
+    background: $primary;
+    color: $white;
+    padding: 20px;
+  }
+
+  &__cell {
+    min-width: 60px;
+    padding: 20px;
+  }
+}
+
+.stats-type {
+  margin-bottom: 20px;
+  @include karla-regular(24px);
+}
+
+.bold {
+  @include karla-bold(18px);
 }

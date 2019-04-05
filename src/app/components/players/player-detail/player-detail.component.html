@@ -10,11 +10,13 @@
         <p class="firstname">{{ player.firstName }}</p>
         <p class="lastname">{{ player.lastName }}</p>
       </div>
-      
+
       <div class="team">
-        <img class="team__logo" src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="">
+        <img class="team__logo"
+          src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ player.teamData.tricode }}.svg" alt="">
         <p class="team__position">{{ player.jersey }} | {{ player.posExpanded }}</p>
-        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ teamConfig.tricode }}.svg" alt="" class="team__shadow-logo">
+        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ teamConfig.tricode }}.svg" alt=""
+          class="team__shadow-logo">
       </div>
     </div>
 
@@ -22,12 +24,31 @@
       alt="" class="player__photo">
 
     <div class="data-container data-container--dimensions">
-      <p>Height: {{ player.heightFeet }}, {{ player.heightInches }}</p>
-      <p>Weight (pounds): {{ player.weightPounds }}</p>
+      <p class="dimensions">Height: <span class="bold">{{ player.heightFeet }}, {{ player.heightInches }}</span></p>
+      <p class="dimensions">Weight (pounds): <span class="bold">{{ player.weightPounds }}</span></p>
     </div>
   </header>
 
-  {{ teamConfig | json }}
+  <div class="player-detail__content">
+    <ng-container *ngIf="playerStats$ | async as playerStats">
+      <ng-container *ngFor="let stats of parseKeys(playerStats)">
+        <ng-container *ngIf="parseKeys(playerStats[stats]) as statsColumns">
+          <p class="stats-type">{{ stats === 'latest' ? 'Latest season stats' : 'Career stats'}}</p>
+          <div class="table-container">
+            <table mat-table [dataSource]="[playerStats[stats]]" class="stats-table">
+              <ng-container [matColumnDef]="column" *ngFor="let column of statsColumns">
+                <th mat-header-cell *matHeaderCellDef class="stats-table__header"> {{ column === 'msg' ? 'No stats available :(' : column }} </th>
+                <td mat-cell *matCellDef="let element" class="stats-table__cell"> {{element[column]}} </td>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="statsColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: statsColumns;" class="stats"></tr>
+            </table>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
 </section>
 
 <ng-template #loader>

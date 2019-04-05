@@ -25,6 +25,7 @@ export namespace CoreReducer {
   export const getPlayerState = (state: State) => state.player;
   export const getPlayers = createSelector(getPlayerState, fromPlayer.getPlayers);
   export const getPlayer = createSelector(getPlayerState, fromPlayer.getPlayer);
+  export const getPlayerStats = createSelector(getPlayerState, fromPlayer.getPlayerStats);
   export const hasPlayersLoaded = createSelector(getPlayerState, fromPlayer.hasPlayersLoaded);
   export const hasPlayerLoaded = createSelector(getPlayerState, fromPlayer.hasPlayerLoaded);
 

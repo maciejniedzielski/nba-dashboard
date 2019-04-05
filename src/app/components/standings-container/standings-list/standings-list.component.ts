@@ -13,11 +13,8 @@ export class StandingsListComponent implements OnInit {
 
   public teams: StandingTeam;
 
-  constructor() { }
-
   ngOnInit() {
     this.teams = this.standings[this.conference];
-    console.log(this.teams);
   }
 
 }

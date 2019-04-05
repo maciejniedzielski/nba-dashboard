@@ -52,6 +52,11 @@ export class NbaService {
   }
 
   public getPlayerById(playerId: number) {
-    return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/players/${ playerId }`)
+    return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/players/${ playerId }`);
   }
+
+  public getPlayerStatsById(playerId: number) {
+    return this.httpClient.get<any>(this.appSettings.dataApiUrl + `/players/playerProfile/${ playerId }`);
+  }
+
 }

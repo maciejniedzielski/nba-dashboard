@@ -51,20 +51,7 @@
   box-shadow: $shadow;
   background: $gray-separator;
 
-  &::-webkit-scrollbar-track {
-    border-radius: 5px;
-    height: 5px;
-    background-color: $gray-separator;
-  }
-
-  &::-webkit-scrollbar {
-    height: 5px;
-    background-color: $gray-separator;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $primary;
-  }
+  @include styled-scrollbar;
 
   &--live {
     display: flex;
@@ -72,6 +59,8 @@
     width: calc(100% - 10px);
     margin-left: 10px;
     overflow-x: scroll;
+    min-height: 70px;
+    align-items: center;
 
     .game {
       margin-right: 2px;
@@ -125,4 +114,8 @@
   &:hover {
     background: $gray-separator;
   }
+}
+
+.no-games-info {
+  padding-left: 25px;
 }
