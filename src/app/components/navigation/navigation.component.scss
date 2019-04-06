@@ -36,12 +36,12 @@
           background: darken($primary, 5%);
         }
 
-        &:active {
+        &:active, &.active {
           background: darken($primary, 10%);
         }
       }
 
-      &:hover {
+      &:hover, &.active {
         &::after {
           content: '';
           width: 100%;
@@ -54,5 +54,80 @@
         }
       }
     }
+
+    @media screen and (max-width: 576px){
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      transform: translateX(100%);
+      transition: .5s;
+      height: auto;
+      background: $primary;
+
+      li {
+        height: 70px;
+        width: 100%;
+        background: $primary;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &.toggled {
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (max-width: 576px){
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+  }
+}
+
+.hamburger {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 50px;
+  transition: 300ms ease;
+  padding: 15px 0;
+
+  .line{
+    width: 30px;
+    height: 2px;
+    background-color: #ecf0f1;
+    display: block;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.is-active{
+    .line:nth-child(1) {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    .line:nth-child(3){
+      opacity: 0;
+      transform: translateX(100%);
+    }    
+  }
+
+  &:hover{
+    cursor: pointer;
+    background: darken($primary, 5%);
+  }
+
+  @media screen and (min-width: 576px) {
+    display: none;
   }
 }

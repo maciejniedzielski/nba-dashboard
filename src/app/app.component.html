@@ -1,6 +1,8 @@
 <section class="app">
-  <app-navigation></app-navigation>
-  <main class="main">
-    <router-outlet></router-outlet>
+  <header class="app__header">
+    <app-navigation></app-navigation>
+  </header>
+  <main [@fadeAnimation]="getRouterOutletState(o)" class="main">
+    <router-outlet #o="outlet"></router-outlet>
   </main>
 </section>

@@ -1,0 +1,121 @@
+@import 'index';
+
+.scoreboard-list {
+  width: 100%;
+
+  &__header {
+    width: 100%;
+    padding: 10px 0;
+    @include flex-align-justify(center, space-between);
+  }
+}
+
+.header__title {
+  @include karla-bold();
+  text-transform: uppercase;
+  position: relative;
+
+  &--upcoming {
+    color: $primary;
+  }
+
+  &--live {
+    color: $secondary;
+    margin-left: 20px;
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      position: absolute;
+      top: 2px;
+      left: -20px;
+      background: $secondary;
+      animation: pulse 1s infinite;
+      animation-duration: 2s;
+    }
+  }
+
+  &--latest {
+    color: lighten($black, 50%);
+  }
+}
+
+
+.games-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 2px;
+  grid-auto-rows: 120px;
+  box-shadow: $shadow;
+  background: $gray-separator;
+
+  @include styled-scrollbar;
+
+  &--live {
+    display: flex;
+    box-shadow: $shadow, -10px 0px 0px $secondary;
+    width: calc(100% - 10px);
+    margin-left: 10px;
+    overflow-x: scroll;
+    min-height: 70px;
+    align-items: center;
+
+    .game {
+      margin-right: 2px;
+      padding: 20px 30px;
+      min-width: 350px;
+    }
+  }
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  background: $light-gray;
+  padding: 10px 50px;
+  @include flex-align-justify(center, space-between);
+
+  &__team {
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+  }
+
+  &__info {
+    @include flex-align-justify(center, center);
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  &--latest {
+    background: #dedede;
+  }
+}
+
+.info__result {
+  @include karla-bold(16px);
+  margin: 5px 0;
+  color: #303030;
+
+  &--live {
+    @include karla-bold(32px);
+    color: $primary;
+  }
+}
+
+.team__logo {
+  $logo-width: 70px;
+  width: $logo-width;
+  border-radius: $logo-width;
+  margin-bottom: 5px;
+  transition: all 300ms ease;
+
+  &:hover {
+    background: $gray-separator;
+  }
+}
+
+.no-games-info {
+  padding-left: 25px;
+}

@@ -1,8 +1,13 @@
 <nav class="nav">
-  <ul class="nav__list">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/scores">Scores</a></li>
-    <li><a routerLink="/players">Players</a></li>
-    <li><a routerLink="/teams">Teams</a></li>
+  <ul class="nav__list" [class.toggled]="isMenuToggled">
+    <li *ngFor="let element of navigationElements" routerLinkActive="active">
+      <a routerLink="/{{ element.path }}" routerLinkActive="active">{{ element.path }}</a>
+    </li>
   </ul>
+
+  <div class="hamburger" [class.is-active]="isMenuToggled" (click)="toggleMenu()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
 </nav>

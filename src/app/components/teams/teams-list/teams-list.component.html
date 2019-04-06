@@ -1,0 +1,21 @@
+<mat-form-field class="search-field">
+  <input matInput type="text" placeholder="Search team..." [formControl]="searchFormControl">
+  <button mat-button *ngIf="searchFormControl.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchControl()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<section *ngIf="hasTeamsLoaded$ | async; else loader" class="teams">
+  <div *ngFor="let team of filteredTeams$ | async" class="team">   
+    <a routerLink="/teams/{{ team.teamId }}" class="link">
+      <figure>
+        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.tricode }}.svg" alt="" class="team__logo">
+        <figcaption>{{ team.fullName }}</figcaption>  
+      </figure>
+    </a>
+  </div>
+</section>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+

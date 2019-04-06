@@ -1,0 +1,27 @@
+<div class="standings-list">
+  <header class="standings-list__header">
+    <p class="conference" [class.conference--west]="conference === 'west'">{{conference}}</p>
+    <div class="ranking-header" [class.ranking-header--west]="conference === 'west'">
+      <p>W</p>
+      <p>L</p>
+    </div>
+  </header>
+  <div class="standings-list__table">
+    <div *ngFor="let team of teams" class="team">
+      <p class="rank">{{ team.confRank }}</p>
+
+      <figure class="figure">
+        <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ team.data.tricode }}.svg" alt=""
+          class="team__logo">
+        <figcaption class="team__name">
+          <a routerLink="/teams/{{ team.data.teamId }}"  class="link">{{ team.data.fullName }}</a>
+        </figcaption>
+      </figure>
+
+      <div class="team__stats">
+        <p>{{ team.win }}</p>
+        <p>{{ team.loss }}</p>
+      </div>
+    </div>
+  </div>
+</div>

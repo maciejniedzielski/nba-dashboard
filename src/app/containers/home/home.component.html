@@ -1,16 +1,9 @@
-<div>
-  <div class="standings">
-    <div>
-      <app-standings></app-standings>
-    </div>
-  
-    <div>
-      <app-standings></app-standings>
-    </div>
+<section class="container home">
+  <header class="home__header">
+    <app-scoreboard-list [games]="liveGames$ | async" gamesType="live" class="live-results-container"></app-scoreboard-list>
+  </header>
+  <div class="home__content">
+    <app-standings-container tpl="list"></app-standings-container>
   </div>
-
-  <aside>
-
-  </aside>
-</div>
+</section>
 

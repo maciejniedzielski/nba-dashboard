@@ -1,17 +1,13 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './containers/home/home.component';
 import { TeamsComponent } from './containers/teams/teams.component';
 import { PlayersComponent } from './containers/players/players.component';
 import { ScoresComponent } from './containers/scores/scores.component';
 import { PlayersItemComponent } from './containers/players-item/players-item.component';
+import { StandingsComponent } from './containers/standings/standings.component';
+import { TeamsItemComponent } from './containers/teams-item/teams-item.component';
 
-export const AppRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  },
+export const NavigationPaths = [
   { 
     path: 'home',
     component: HomeComponent,
@@ -23,18 +19,36 @@ export const AppRoutes: Routes = [
     data: { title: 'Scores' }
   },
   { 
+    path: 'standings',
+    component: StandingsComponent,
+    data: { title: 'Standings' }
+  },
+  { 
     path: 'players',
     component: PlayersComponent,
     data: { title: 'Players' }
   },
   { 
-    path: 'players/:id',
-    component: PlayersItemComponent
-  },
-  { 
     path: 'teams',
     component: TeamsComponent,
     data: { title: 'Teams' }
+  }
+];
+
+export const AppRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  ...NavigationPaths,
+  { 
+    path: 'players/:firstname/:lastname/:id',
+    component: PlayersItemComponent
+  },
+  { 
+    path: 'teams/:id',
+    component: TeamsItemComponent,
   },
   {
     path: '**',

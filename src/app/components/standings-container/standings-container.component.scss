@@ -1,0 +1,38 @@
+@import 'index';
+
+.standings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 50px;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+
+  .standings-list {
+    margin-bottom: 50px;
+  }
+}
+
+.table {
+  @media screen and (max-width: 880px) {
+    display: none;
+  }
+}
+
+.list {
+  display: none;
+
+  @media screen and (max-width: 880px) {
+    display: block;
+    margin-bottom: 50px;
+  }
+}
+
+.standings-conference-switcher {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+}

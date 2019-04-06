@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { AppSettings } from 'src/app/app.settings';
+import { CoreReducer } from 'src/app/store/reducers';
+import { Store } from '@ngrx/store';
+import { PlayerStoreActions } from 'src/app/store/actions';
+import { ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-players-item',
@@ -9,12 +12,22 @@ import { AppSettings } from 'src/app/app.settings';
 })
 export class PlayersItemComponent implements OnInit {
 
+  public playerTeamConfig$;
+  public player$;
+
+  public hasPlayerLoaded$;
+  public hasTeamConfigLoaded$;
+
   public constructor(
-    private appSettings: AppSettings,
-    private titleService: Title
+    private _store: Store<CoreReducer.State>,
+    private _activatedRoute: ActivatedRoute
   ) { }
 
+
   ngOnInit() {
-    this.titleService.setTitle('Stephen Curry' + this.appSettings.appTabTitle);
+    this._store.dispatch(new PlayerStoreActions.LoadPlayer(this._activatedRoute.snapshot.params.id));
+    this._store.dispatch(new PlayerStoreActions.LoadPlayerStats(this._activatedRoute.snapshot.params.id));
+    this.player$ = this._store.select(CoreReducer.getPlayer).pipe(filter(Boolean));
+    this.playerTeamConfig$ = this._store.select(CoreReducer.getTeamConfig).pipe(filter(Boolean));
   }
 }

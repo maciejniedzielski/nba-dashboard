@@ -1,0 +1,92 @@
+@import 'index';
+
+$ranking-width: 110px;
+$ranking-width-mobile: 70px;
+
+.standings-list {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  &__header {
+    @include flex-align-justify(center, space-between);
+  }
+
+  &__table {
+    box-shadow: $shadow;
+  }
+}
+
+.conference {
+  text-transform: uppercase;
+  color: $primary;
+  @include karla-bold(18px);
+
+  &--west {
+    color: $secondary;
+  }
+}
+
+.team {
+  display: grid;
+  grid-template-columns: 40px 2fr $ranking-width;
+  align-items: center;
+  padding: 2.5px 5px;
+  background: $white;
+
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 40px 2fr $ranking-width-mobile;
+  }
+
+  &:nth-child(odd) {
+    background: $light-gray;
+  }
+
+  &:nth-child(n + 9) {
+    background: #eceeef;
+    opacity: 0.6;
+  }
+
+  &:nth-child(9) {
+    border-top: 2px solid $gray-separator;
+  }
+
+  &__logo {
+    width: 40px;
+    margin-right: 5px;
+  }
+
+  &__name {
+    color: $black;
+  }
+
+  &__stats {
+    @include flex-align-justify(center, space-around);
+  }
+}
+
+.rank {
+  @include karla-regular(18px);
+  text-align: center;
+}
+
+.figure {
+  @include flex-align-justify(center);
+}
+
+.ranking-header {
+  @include flex-align-justify(center, space-around);
+  width: calc(#{$ranking-width} + 10px);
+  padding: 5px;
+  background: $primary;
+  color: $white;
+  border-radius: 3px 3px 0 0;
+
+  @media screen and (max-width: 400px) {
+    width: calc(#{$ranking-width-mobile} + 10px);
+  }
+
+  &--west {
+    background: $secondary;
+  }
+}

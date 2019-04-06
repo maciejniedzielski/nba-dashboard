@@ -1,0 +1,8 @@
+<div *ngIf="(currentConference$ | async) as currentConference" class="button-container">
+  <button [class.conference-button--active]="currentConference === 'west'" class="conference-button" (click)="changeConference('west')">
+    West
+  </button>
+  <button [class.conference-button--active]="currentConference === 'east'" class="conference-button" (click)="changeConference('east')">
+    East
+  </button>
+</div>

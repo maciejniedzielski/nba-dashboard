@@ -1,14 +1,32 @@
 @import 'reset';
 @import 'index';
 
-@import url('https://fonts.googleapis.com/css?family=Karla');
-
 * {
   box-sizing: border-box;
-  font-family: 'Karla', sans-serif;
+  @include karla-regular();
 }
 
 html, body {
   width: 100%;
   height: 100%;
+}
+
+.link {
+  color: $black;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+.container {
+  padding: 50px 5vw;
+  height: 100%;
+}
+
+.mat-sort-header-arrow {
+  color: $white !important;
 }

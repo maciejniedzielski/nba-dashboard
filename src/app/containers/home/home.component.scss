@@ -1,7 +1,31 @@
 @import 'index';
 
-.standings {
+.home {
   display: grid;
-  grid-template-columns: repeat(2, minmax(auto, 400px));
-  grid-column-gap: 50px;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 50px;
+  grid-column-gap: 25px;
+
+  &__header {
+    grid-column: 1/2;
+    background: $app-background;
+  }
+
+  &__content {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .player {
+    grid-column: 2/3;
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1/2;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 100%;
+  }
 }

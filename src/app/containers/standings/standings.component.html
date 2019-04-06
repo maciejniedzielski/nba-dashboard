@@ -1,0 +1,14 @@
+<section class="container">
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="changeStandingsViewType('table')">
+      <mat-icon>table_chart</mat-icon>
+      Table view
+    </button>
+    <button mat-raised-button color="primary" (click)="changeStandingsViewType('list')">
+      <mat-icon>view_list</mat-icon>
+      List view
+    </button>
+  </div>
+
+  <app-standings-container [tpl]="standingsViewType"></app-standings-container>
+</section>

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&subset=latin-ext');
+
+$base-font: 16px;
+
+@mixin karla-regular($size: $base-font) {
+  font-family: 'Karla', sans-serif;
+  font-size: $size;
+  font-weight: 400;
+}
+
+@mixin karla-bold($size: $base-font) {
+  font-family: 'Karla', sans-serif;
+  font-size: $size;
+  font-weight: 700;
+}

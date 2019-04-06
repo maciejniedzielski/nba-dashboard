@@ -1,3 +1,5 @@
-<p>
-  players-item works!
-</p>
+<section>
+  <app-player-detail [playerData]="player$ | async" [playerTeamConfig]="playerTeamConfig$ | async"
+  [careerSummary]="careerSummary"
+  ></app-player-detail>
+</section>

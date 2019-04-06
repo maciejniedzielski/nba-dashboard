@@ -1,0 +1,115 @@
+<div *ngIf="gamesType === 'upcoming'" class="scoreboard-list">
+  <header class="scoreboard-list__header">
+    <p class="header__title header__title--upcoming">Upcoming</p>
+  </header>
+  <div class="games-container games-container--upcoming">
+    <ng-container *ngIf="games?.length; else noGames">
+      <div *ngFor="let game of games" class="game">
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+        <div class="game__info">
+          <p *ngIf="game.hTeam.score && game.vTeam.score; else notLiveScore" class="info__result">
+            {{ game.hTeam.score }} : {{ game.vTeam.score }}
+          </p>
+          <ng-template #notLiveScore>
+            <p>UPCOMING</p>
+          </ng-template>
+        </div>
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div *ngIf="gamesType === 'live'" class="scoreboard-list">
+  <header class="scoreboard-list__header">
+    <p class="header__title header__title--live">Live</p>
+    <a href="https://www.reddit.com/r/nbastreams/" target="_blank" title="Check out live streams"
+      class="link">reddit.com/r/nbastreams</a>
+  </header>
+  <div class="games-container games-container--live">
+    <ng-container *ngIf="games?.length; else noGames">
+      <div *ngFor="let game of games" class="game">
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.hTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+
+        <div class="game__info">
+          <p *ngIf="game.hTeam.score && game.vTeam.score" class="info__result info__result--live">
+            {{ game.hTeam.score }} : {{ game.vTeam.score }}
+          </p>
+        </div>
+
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div *ngIf="gamesType === 'latest' && games?.length" class="scoreboard-list">
+  <header class="scoreboard-list__header">
+    <p class="header__title header__title--latest">Latest</p>
+  </header>
+  <div class="games-container">
+    <ng-container *ngIf="games?.length; else noGames">
+      <div *ngFor="let game of games" class="game game--latest">
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.hTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.hTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+        <div class="game__info">
+          <p class="info__result">
+            {{ game.hTeam.score }} : {{ game.vTeam.score }}
+          </p>
+        </div>
+        <div class="game__team">
+          <a routerLink="/teams/{{ game.vTeam.teamId }}">
+            <img src="https://cdn.nba.net/assets/logos/teams/secondary/web/{{ game.vTeam.triCode }}.svg" alt=""
+              class="team__logo">
+          </a>
+          <p>
+            {{ game.hTeam.win }} - {{ game.hTeam.loss }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noGames>
+  <div class="no-games-info">
+    <p>No available games</p>
+  </div>
+</ng-template>
