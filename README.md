@@ -5,6 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Prerequisities
 * Node.js
 * npm
+* Ready [API server](https://github.com/maciejniedzielski/nba-dashboard-api/)
 
 ## Installing dependencies
 
